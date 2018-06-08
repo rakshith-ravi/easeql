@@ -58,10 +58,10 @@ function querify(yamlFile, cb) {
                 if (table.primaryKey) {
                     query += `, PRIMARY KEY(${table.primaryKey.join(', ')})`;
                 }
-                query += ");";
-                resolve(query);
-                if(cb) cb(undefined, query);
+                query += ");\r\n";
             }
+            resolve(query);
+            if(cb) cb(undefined, query);
         });
     });
 };

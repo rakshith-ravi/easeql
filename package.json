@@ -1,6 +1,6 @@
 {
 	"name": "easeql",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Write the documentation and it generates the SQL commands for you",
 	"main": "index.js",
 	"preferGlobal": true,

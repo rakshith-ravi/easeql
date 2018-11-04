@@ -17,9 +17,10 @@ function querify(yamlFile, cb) {
                 if(cb) cb(err);
                 return;
             }
+            var query =  "";
             for(var i = 0; i < schema.length; i++) {
                 var table = schema[i];
-                var query = `CREATE TABLE IF NOT EXISTS ${table.tableName}(`;
+                query += `CREATE TABLE IF NOT EXISTS ${table.tableName}(`;
                 var first = true;
                 for(var column in table.schema) {
                     if(first == false) {
@@ -58,7 +59,7 @@ function querify(yamlFile, cb) {
                 if (table.primaryKey) {
                     query += `, PRIMARY KEY(${table.primaryKey.join(', ')})`;
                 }
-                query += ");\r\n";
+                query += ");\n";
             }
             resolve(query);
             if(cb) cb(undefined, query);

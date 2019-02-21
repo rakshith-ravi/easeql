@@ -32,9 +32,9 @@ function querify(yamlFile, cb) {
                     var columnObject = table.schema[column];
     
                     if(columnObject.size) {
-                        query += `${column} ${columnObject.type.toUpperCase()}(${columnObject.size})`;
+                        query += `\`${column}\` ${columnObject.type.toUpperCase()}(${columnObject.size})`;
                     } else {
-                        query += `${column} ${columnObject.type}`;
+                        query += `\`${column}\` ${columnObject.type}`;
                     }
     
                     if (columnObject.primaryKey == true) {
@@ -62,7 +62,8 @@ function querify(yamlFile, cb) {
                 query += ");\n";
             }
             resolve(query);
-            if(cb) cb(undefined, query);
+            if(cb)
+                cb(undefined, query);
         });
     });
 };
